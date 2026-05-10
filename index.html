@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="A non-persistent Coder recruitment platform demo that uses pure HTML, CSS, and JavaScript to simulate the main workflows of the original Java SSH project."
+    >
+    <title>Coder Recruitment Platform | Non-persistent Demo</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="shell header-inner">
+        <a class="brand" href="#home" data-route="home" aria-label="Coder home">
+          <span class="brand-mark">C</span>
+          <span>Coder Jobs</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="app-nav">
+          Menu
+        </button>
+        <nav class="app-nav" id="app-nav" aria-label="Main navigation">
+          <a href="#home" data-route="home">Home</a>
+          <a href="#jobs" data-route="jobs">Jobs</a>
+          <a href="#companies" data-route="companies">Companies</a>
+          <a href="#resume" data-route="resume" data-coder-only>My Resume</a>
+          <a href="#company-admin" data-route="company-admin" data-company-only>Post Jobs</a>
+          <a href="#deliveries" data-route="deliveries">Applications</a>
+        </nav>
+        <div class="account-bar" id="account-bar"></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="view hero-view active" id="view-home" aria-labelledby="home-title">
+        <div class="shell hero-grid">
+          <div>
+            <p class="eyebrow">Non-persistent Java SSH Demo</p>
+            <h1 id="home-title">A GitHub-ready frontend demo of the original SSH recruitment system</h1>
+            <p class="hero-copy">
+              This page uses in-memory data to simulate the original JSP, Struts2 Action,
+              Spring Service, and Hibernate DAO workflows. Switch between candidate and
+              employer accounts to search jobs, edit resumes, post jobs, submit applications,
+              and update application status.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#jobs" data-route="jobs">Find Jobs</a>
+              <a class="button secondary" href="#company-admin" data-route="company-admin">Post a Job</a>
+            </div>
+          </div>
+          <aside class="login-card" aria-labelledby="login-title">
+            <div class="card-heading">
+              <p class="eyebrow">Session Mock</p>
+              <h2 id="login-title">Demo Login</h2>
+              <p>The login state only lives in the current page session and resets after refresh.</p>
+            </div>
+            <form id="login-form" class="form-grid">
+              <label>
+                Account
+                <select id="login-user" name="userId">
+                  <option value="coder">Candidate: coder_demo</option>
+                  <option value="company">Employer: company_demo</option>
+                </select>
+              </label>
+              <button class="button primary full" type="submit">Log In</button>
+            </form>
+            <button class="button ghost full" type="button" id="logout-button">Log Out</button>
+          </aside>
+        </div>
+      </section>
+
+      <section class="shell summary-panel">
+        <article>
+          <span id="summary-job-count">0</span>
+          <p>Open Jobs</p>
+        </article>
+        <article>
+          <span id="summary-company-count">0</span>
+          <p>Companies</p>
+        </article>
+        <article>
+          <span id="summary-delivery-count">0</span>
+          <p>Applications</p>
+        </article>
+        <article>
+          <span>0</span>
+          <p>Backend Dependencies</p>
+        </article>
+      </section>
+
+      <section class="view shell" id="view-jobs" aria-labelledby="jobs-title">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">SearchPositionAction</p>
+            <h2 id="jobs-title">Job Search</h2>
+            <p>Simulates category navigation, job listings, job details, and application submission.</p>
+          </div>
+          <form class="search-form" id="job-search-form">
+            <label class="visually-hidden" for="job-keyword">Search keyword</label>
+            <input id="job-keyword" type="search" placeholder="Search Java, Frontend, QA, Product">
+            <button class="button primary" type="submit">Search</button>
+          </form>
+        </div>
+        <div class="category-row" id="category-row"></div>
+        <div class="content-grid">
+          <div class="list-panel" id="job-list"></div>
+          <aside class="detail-panel" id="job-detail"></aside>
+        </div>
+      </section>
+
+      <section class="view shell" id="view-companies" aria-labelledby="companies-title">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">LoadCompanyListAction</p>
+            <h2 id="companies-title">Company Directory</h2>
+            <p>Simulates company profiles, products, stages, tags, and open positions.</p>
+          </div>
+        </div>
+        <div class="company-grid" id="company-list"></div>
+      </section>
+
+      <section class="view shell" id="view-resume" aria-labelledby="resume-title">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">ResumeServiceImpl</p>
+            <h2 id="resume-title">My Resume</h2>
+            <p>Edits update browser memory only and do not write to files, databases, or local storage.</p>
+          </div>
+        </div>
+        <div class="editor-layout">
+          <form class="panel form-grid" id="resume-form">
+            <label>
+              Resume Title
+              <input name="title" type="text" required>
+            </label>
+            <label>
+              Name
+              <input name="name" type="text" required>
+            </label>
+            <label>
+              Target Role
+              <input name="target" type="text" required>
+            </label>
+            <label>
+              Experience
+              <input name="experience" type="text" required>
+            </label>
+            <label>
+              Education
+              <input name="education" type="text" required>
+            </label>
+            <label>
+              Attachment File Name
+              <input name="attachment" type="text" required>
+            </label>
+            <label class="span-2">
+              Project Experience
+              <textarea name="project" rows="4" required></textarea>
+            </label>
+            <label class="span-2">
+              Self Summary
+              <textarea name="summary" rows="4" required></textarea>
+            </label>
+            <button class="button primary span-2" type="submit">Save to Memory</button>
+          </form>
+          <aside class="resume-preview panel" id="resume-preview"></aside>
+        </div>
+      </section>
+
+      <section class="view shell" id="view-company-admin" aria-labelledby="company-admin-title">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">CompanyServiceImpl / PositionServiceImpl</p>
+            <h2 id="company-admin-title">Employer Center</h2>
+            <p>Simulates company profile editing, job posting, job status changes, and received resumes.</p>
+          </div>
+        </div>
+        <div class="editor-layout">
+          <div class="panel">
+            <h3>Company Profile</h3>
+            <form class="form-grid" id="company-form">
+              <label>
+                Company Name
+                <input name="name" type="text" required>
+              </label>
+              <label>
+                Funding Stage
+                <input name="stage" type="text" required>
+              </label>
+              <label>
+                Tags
+                <input name="tags" type="text" required>
+              </label>
+              <label>
+                Product
+                <input name="product" type="text" required>
+              </label>
+              <label class="span-2">
+                Company Description
+                <textarea name="description" rows="4" required></textarea>
+              </label>
+              <button class="button primary span-2" type="submit">Save Company Profile</button>
+            </form>
+          </div>
+          <div class="panel">
+            <h3>Post a Job</h3>
+            <form class="form-grid" id="position-form">
+              <label>
+                Job Title
+                <input name="title" type="text" required>
+              </label>
+              <label>
+                Job Type
+                <input name="type" type="text" required>
+              </label>
+              <label>
+                Salary
+                <input name="salary" type="text" required>
+              </label>
+              <label>
+                Location
+                <input name="city" type="text" required>
+              </label>
+              <label class="span-2">
+                Job Description
+                <textarea name="description" rows="4" required></textarea>
+              </label>
+              <button class="button primary span-2" type="submit">Add Job</button>
+            </form>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>My Posted Jobs</h3>
+          <div class="table-like" id="company-position-list"></div>
+        </div>
+      </section>
+
+      <section class="view shell" id="view-deliveries" aria-labelledby="deliveries-title">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">DeliveryResumeServiceImpl</p>
+            <h2 id="deliveries-title">Application Center</h2>
+            <p>Candidates can view submitted applications; employers can review resumes and update status.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="table-like" id="delivery-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="main.js"></script>
+  </body>
+</html>

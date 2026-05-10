@@ -3,7 +3,7 @@
 This is a GitHub Pages-ready demo rebuilt from the original source code of my undergraduate graduation project, `coder_1`.
 
 ## Note for Admissions Reviewers
-
+Please visit https://yahzi.github.io/Bachelor_Software_Engineering/ to see the demo website.
 I created this static page after finding the original source code of my graduation design project. The original project was a Java SSH web application and was not convenient to run directly for a quick review because it depended on a Java web server and a database.
 
 For easier presentation, I converted the main workflows into a non-persistent static demo. This page is intended to help reviewers understand the general topic, feature scope, and functional modules of my graduation design. It should be used as a high-level reference only, not as a fully deployed production version of the original system.
